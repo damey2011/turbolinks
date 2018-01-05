@@ -41,7 +41,7 @@ renderingTest "reloads when tracked elements change", (assert, session, done) ->
       assert.equal(navigation.action, "load")
       done()
 
-renderingTest "reloads when turbolinks-behavior setting is reload", (assert, session, done) ->
+renderingTest "reloads when turbolinks-visit-behavior setting is reload", (assert, session, done) ->
   responseReceived = false
   session.waitForEvent "turbolinks:request-end", (event) ->
     responseReceived = true
@@ -50,15 +50,15 @@ renderingTest "reloads when turbolinks-behavior setting is reload", (assert, ses
   session.waitForEvent "turbolinks:render", (event) ->
     rendered = true
 
-  session.clickSelector "#reload-behavior-link", (navigation) ->
+  session.clickSelector "#visit-behavior-reload-link", (navigation) ->
     # Turbolinks calls pushState first, after issuing the request
     # but before receiving the response. Wait again for the reload.
-    assert.equal(navigation.location.pathname, "/fixtures/reload_behavior.html")
+    assert.equal(navigation.location.pathname, "/fixtures/visit_behavior_reload.html")
     assert.equal(navigation.action, "push")
     session.waitForNavigation (navigation) ->
       assert.ok(responseReceived)
       assert.notOk(rendered)
-      assert.equal(navigation.location.pathname, "/fixtures/reload_behavior.html")
+      assert.equal(navigation.location.pathname, "/fixtures/visit_behavior_reload.html")
       assert.equal(navigation.action, "load")
       done()
 

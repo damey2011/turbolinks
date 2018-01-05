@@ -29,7 +29,7 @@ class Turbolinks.SnapshotRenderer extends Turbolinks.Renderer
     @assignNewBody()
 
   shouldRender: ->
-    @newSnapshot.isRenderable() and @trackedElementsAreIdentical()
+    @newSnapshot.isVisitable() and @trackedElementsAreIdentical()
 
   trackedElementsAreIdentical: ->
     @currentHeadDetails.getTrackedElementSignature() is @newHeadDetails.getTrackedElementSignature()
