@@ -67,7 +67,7 @@ Your application can use the [`turbolinks` npm package](https://www.npmjs.com/pa
 [Advanced Usage](#advanced-usage)
 - [Displaying Progress](#displaying-progress)
 - [Reloading When Assets Change](#reloading-when-assets-change)
-- [Reloading Specific Pages](#reloading-specific-pages)
+- [Ensuring Specific Pages Trigger a Full Reload](#ensuring-specific-pages-trigger-a-full-reload)
 - [Setting a Root Location](#setting-a-root-location)
 - [Following Redirects](#following-redirects)
 - [Redirecting After a Form Submission](#redirecting-after-a-form-submission)
@@ -351,9 +351,9 @@ Annotate asset elements with `data-turbolinks-track="reload"` and include a vers
 </head>
 ```
 
-## Reloading Specific Pages
+## Ensuring Specific Pages Trigger a Full Reload
 
-If you want certain pages to always fully reload when they're navigated to, set the page's `visit-control` to `reload` using a special `<meta>` tag. This may be a useful workaround for pages with 3rd party JavaScript libraries that are incompatible with Turbolinks.
+If you want certain pages to always fully reload when they're navigated to, set the page's `visit-control` to `reload` using a special `<meta>` tag. This may be useful for pages with 3rd party JavaScript libraries that don't interact well with standard Turbolinks page changes.
 
 ```html
 <head>
