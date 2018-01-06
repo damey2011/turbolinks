@@ -353,12 +353,12 @@ Annotate asset elements with `data-turbolinks-track="reload"` and include a vers
 
 ## Reloading Specific Pages
 
-If you want certain pages to always fully reload when they're navigated to, set the page's visit behavior to `reload` using a special `<meta>` tag. This may be a useful workaround for pages with 3rd party JavaScript libraries that are incompatible with Turbolinks.
+If you want certain pages to always fully reload when they're navigated to, set the page's `visit-control` to `reload` using a special `<meta>` tag. This may be a useful workaround for pages with 3rd party JavaScript libraries that are incompatible with Turbolinks.
 
 ```html
 <head>
   ...
-  <meta name="turbolinks-visit-behavior" name="reload">
+  <meta name="turbolinks-visit-control" name="reload">
 </head>
 ```
 
